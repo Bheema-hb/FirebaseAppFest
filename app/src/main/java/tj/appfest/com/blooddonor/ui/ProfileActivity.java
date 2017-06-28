@@ -1,12 +1,9 @@
 package tj.appfest.com.blooddonor.ui;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.DialogFragment;
@@ -19,9 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
-
-import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +26,7 @@ import butterknife.OnClick;
 import tj.appfest.com.blooddonor.DatePickerFragment;
 import tj.appfest.com.blooddonor.LocalDB;
 import tj.appfest.com.blooddonor.R;
-import tj.appfest.com.blooddonor.UserProfile;
+import tj.appfest.com.blooddonor.model.UserProfile;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -126,6 +123,7 @@ public class ProfileActivity extends AppCompatActivity {
             mUserProfile.bloodType = bloodGroupType.getSelectedItem().toString();
             mUserProfile.mobile = mobile.getText().toString();
             mUserProfile.dob = dob.getText().toString();
+            mUserProfile.fcmToken = FirebaseInstanceId.getInstance().getToken();
 
             userProfileDb = firebaseDatabase.getReference("server/data/users/profiles");
             DatabaseReference userDatabase = userProfileDb.child(mUserProfile.mobile);
@@ -133,6 +131,8 @@ public class ProfileActivity extends AppCompatActivity {
 
             userDatabase.setValue(mUserProfile);
             LocalDB.getInstance(this).setUserId(mUserProfile.mobile);
+
+            FirebaseMessaging.getInstance().subscribeToTopic("/topics/donation_list");
 
             Snackbar.make(rootView, "Data Saved", Snackbar.LENGTH_LONG).show();
 

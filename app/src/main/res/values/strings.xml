@@ -13,6 +13,7 @@
     <string name="user_dob">DOB</string>
     <string name="save_profile">Save Profile</string>
     <string name="blood_group">Blood Group</string>
+    <string name="blood_group_select">Select Blood Group</string>
     <string name="user_mobile_number">Mobile Number</string>
     <string name="err_mandatory_fields_not_entered">Please enter all the mandatory field</string>
 
@@ -36,4 +37,5 @@
     <string name="send_otp">Send OTP</string>
     <string name="verify">Verify</string>
     <string name="resend_verification_code">Resend Verification Code</string>
+    <string name="title_activity_request_for_blood">RequestForBloodActivity</string>
 </resources>

@@ -1,4 +1,4 @@
-package tj.appfest.com.blooddonor;
+package tj.appfest.com.blooddonor.model;
 
 /**
  * Created by nitin on 28/06/17.
