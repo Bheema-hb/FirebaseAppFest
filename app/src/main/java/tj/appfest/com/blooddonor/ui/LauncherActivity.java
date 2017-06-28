@@ -1,7 +1,9 @@
-package tj.appfest.com.blooddonor;
+package tj.appfest.com.blooddonor.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import tj.appfest.com.blooddonor.R;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -9,5 +11,7 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_luncher);
+
+
     }
 }
