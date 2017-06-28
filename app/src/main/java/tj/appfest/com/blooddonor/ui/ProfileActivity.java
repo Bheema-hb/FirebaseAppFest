@@ -101,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
             email.setEnabled(true);
         }
 
-        if (firebaseUser.getPhoneNumber() != null) {
+        if (firebaseUser.getPhoneNumber() != null && firebaseUser.getPhoneNumber().trim().length() > 1) {
             mobile.setText(firebaseUser.getPhoneNumber());
         } else {
             mobile.setEnabled(true);
@@ -131,7 +131,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             userProfileDb.child(userId).setValue(mUserProfile);
 
-            Snackbar.make(rootView, "Data Will Saved", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(rootView, "Data Saved", Snackbar.LENGTH_LONG).show();
         } else {
             Snackbar.make(rootView, getString(R.string.err_mandatory_fields_not_entered), Snackbar.LENGTH_LONG).show();
         }
