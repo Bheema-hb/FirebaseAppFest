@@ -32,30 +32,23 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <activity android:name=".ui.GoogleSignInActivity"></activity>
-        <activity android:name=".ui.GoogleSignInActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_sign_gmail">
-        </activity>
+        <activity
+            android:name=".ui.GoogleSignInActivity"
+            android:label="@string/title_activity_sign_gmail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".ui.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_profile">
-            <!--<intent-filter>
->>>>>>> 3f63226eecea590ea8510e32ad7e100fbc697af0
-                <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
         </activity>
-        <activity android:name=".ui.PhoneAuthActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_sign_number"/>
-        <activity android:name=".ui.PhoneAuthActivity" />
+        <activity
+            android:name=".ui.PhoneAuthActivity"
+            android:label="@string/title_activity_sign_number"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ui.LauncherActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+
         <activity
             android:name=".ui.LauncherActivity"
             android:label="Welcome">
