@@ -17,6 +17,8 @@ import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
@@ -26,6 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tj.appfest.com.blooddonor.DatePickerFragment;
 import tj.appfest.com.blooddonor.R;
+import tj.appfest.com.blooddonor.UserProfile;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -57,6 +60,13 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
+    DatabaseReference userProfileDb;
+
+    FirebaseDatabase firebaseDatabase;
+
+    UserProfile mUserProfile;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +75,8 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase.setPersistenceEnabled(true);
 
     }
 
@@ -106,7 +118,19 @@ public class ProfileActivity extends AppCompatActivity {
     public void saveProfile() {
 
         if (validateFields()) {
-            // TODO: 28/06/17 add logic to sync data with Realtime DB
+            mUserProfile = new UserProfile();
+            mUserProfile.email = email.getText().toString().trim();
+            mUserProfile.name = name.getText().toString().trim();
+            mUserProfile.address = address.getText().toString().trim();
+            mUserProfile.bloodType = bloodGroupType.getSelectedItem().toString();
+            mUserProfile.mobile = mobile.getText().toString();
+            mUserProfile.dob = dob.getText().toString();
+
+            userProfileDb = firebaseDatabase.getReference("user_profiles");
+            String userId = userProfileDb.push().getKey();
+
+            userProfileDb.child(userId).setValue(mUserProfile);
+
             Snackbar.make(rootView, "Data Will Saved", Snackbar.LENGTH_LONG).show();
         } else {
             Snackbar.make(rootView, getString(R.string.err_mandatory_fields_not_entered), Snackbar.LENGTH_LONG).show();
@@ -134,6 +158,13 @@ public class ProfileActivity extends AppCompatActivity {
             mobile.setError("Please enter mobile");
         } else {
             mobile.setError(null);
+        }
+
+        if (address.getText().toString().trim().length() < 1) {
+            validated = false;
+            address.setError("Please enter address");
+        } else {
+            address.setError(null);
         }
 
         if (dob.getText().toString().length() < 1) {
