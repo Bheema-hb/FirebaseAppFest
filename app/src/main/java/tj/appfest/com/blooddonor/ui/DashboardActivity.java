@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +30,7 @@ import tj.appfest.com.blooddonor.R;
 import tj.appfest.com.blooddonor.model.UserProfile;
 
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends BaseActivity {
 
 
     private static final String TAG = DashboardActivity.class.getSimpleName();
@@ -57,11 +58,16 @@ public class DashboardActivity extends AppCompatActivity {
         donorAdapter = new DonorAdapter(donorsList);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(donorList.getContext(),
+                DividerItemDecoration.VERTICAL);
+        donorList.addItemDecoration(mDividerItemDecoration);
+
         donorList.setLayoutManager(mLayoutManager);
         donorList.setItemAnimator(new DefaultItemAnimator());
         donorList.setAdapter(donorAdapter);
-
+        showProgressDialog();
         retrieve();
+
 
         donorAdapter.notifyDataSetChanged();
 
@@ -76,6 +82,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
 
 
+
     }
 
     public ArrayList<UserProfile> retrieve() {
@@ -84,12 +91,13 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    UserProfile group = ds.getValue(UserProfile.class);
-                    Log.d(TAG, "" + group.getName());
-                    donorsList.add(group);
-                    donorAdapter.notifyDataSetChanged();
-                }
+               for (DataSnapshot ds : dataSnapshot.getChildren()){
+                   UserProfile group = ds.getValue(UserProfile.class);
+                   Log.d(TAG, ""+group.getName());
+                   donorsList.add(group);
+                   hideProgressDialog();
+                   donorAdapter.notifyDataSetChanged();
+               }
 
             }
 
