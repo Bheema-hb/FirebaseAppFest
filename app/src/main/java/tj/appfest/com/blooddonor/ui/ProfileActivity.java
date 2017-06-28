@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -70,6 +70,13 @@ public class ProfileActivity extends AppCompatActivity {
     @OnClick(R.id.save_profile)
     public void saveProfile() {
         // TODO: 28/06/17 add logic to sync data with Realtime DB
+    }
+
+    @OnClick(R.id.logout_profile)
+    public void logoutProfile() {
+        FirebaseAuth.getInstance().signOut();
+        finish();
+        startActivity(new Intent(this, LauncherActivity.class));
     }
 
 }

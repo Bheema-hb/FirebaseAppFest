@@ -10,22 +10,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.GoogleSignInActivity">
+        <activity android:name=".ui.GoogleSignInActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_sign_gmail">
         </activity>
 
         <activity
             android:name=".ui.ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/Theme.AppCompat">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_profile">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".ui.PhoneAuthActivity"/>
+        <activity android:name=".ui.PhoneAuthActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_sign_number"/>
 
         <activity android:name=".ui.LauncherActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

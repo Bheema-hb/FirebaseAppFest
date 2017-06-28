@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:layout_margin="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="tj.appfest.com.blooddonor.ui.ProfileActivity"
     tools:showIn="@layout/activity_profile">
@@ -102,5 +103,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save_profile" />
+
+        <Button
+            android:id="@+id/logout_profile"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
     </LinearLayout>
 </ScrollView>
