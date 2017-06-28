@@ -27,4 +27,5 @@
         <item>AB-</item>
 
     </array>
+    <string name="instant_validation">(instant validation)</string>
 </resources>

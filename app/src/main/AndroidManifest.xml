@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <service android:name=".fcm.FCMMessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -31,24 +32,31 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
+        <activity android:name=".ui.GoogleSignInActivity"></activity>
+
         <activity
-            android:name=".ui.GoogleSignInActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
+            android:name=".ui.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.AppCompat">
+            <!--<intent-filter>
+>>>>>>> 3f63226eecea590ea8510e32ad7e100fbc697af0
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.PhoneAuthActivity" />
+
+        <activity
+            android:name=".ui.LauncherActivity"
+            android:label="Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".ui.LauncherActivity"
-            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>
