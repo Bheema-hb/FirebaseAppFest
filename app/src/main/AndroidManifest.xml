@@ -11,18 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.GoogleSignInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ui.ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".ui.LauncherActivity"></activity>
+            android:theme="@style/Theme.AppCompat">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.PhoneAuthActivity"/>
+
+        <activity android:name=".ui.LauncherActivity"
+            android:label="Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
+
     </application>
 
 </manifest>

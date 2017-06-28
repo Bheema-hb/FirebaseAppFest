@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>loading_phrase</key>
+        <value>Fetching config…</value>
+    </entry>
+    <entry>
+        <key>google_login</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>mobile_number_verification</key>
+        <value>false</value>
+    </entry>
+</defaultsMap>
+    <!-- END xml_defaults -->
