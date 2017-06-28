@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/icon"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_blooddonorapp"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
