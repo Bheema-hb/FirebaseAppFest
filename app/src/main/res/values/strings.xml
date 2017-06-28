@@ -38,4 +38,5 @@
     <string name="verify">Verify</string>
     <string name="resend_verification_code">Resend Verification Code</string>
     <string name="title_activity_request_for_blood">RequestForBloodActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

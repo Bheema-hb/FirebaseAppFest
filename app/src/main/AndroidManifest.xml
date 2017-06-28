@@ -41,7 +41,7 @@
             android:name=".ui.ProfileActivity"
             android:label="@string/title_activity_profile"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.PhoneAuthActivity"
             android:label="@string/title_activity_sign_number"
@@ -64,6 +64,10 @@
         <activity
             android:name=".ui.RequestForBloodActivity"
             android:label="@string/title_activity_request_for_blood"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

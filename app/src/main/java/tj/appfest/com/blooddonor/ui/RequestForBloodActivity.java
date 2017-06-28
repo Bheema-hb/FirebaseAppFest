@@ -8,11 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import junit.framework.Test;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tj.appfest.com.blooddonor.R;
 import tj.appfest.com.blooddonor.model.Requests;
@@ -33,6 +37,7 @@ public class RequestForBloodActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_for_blood);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -46,7 +51,10 @@ public class RequestForBloodActivity extends AppCompatActivity {
         Requests requests = new Requests();
         requests.bloodGroup = bloodGroupType.getSelectedItem().toString();
 
+
         requestsDatabase.setValue(requests);
+
+        Toast.makeText(this, "Request Submitted Successfully", Toast.LENGTH_LONG).show();
     }
 
 }

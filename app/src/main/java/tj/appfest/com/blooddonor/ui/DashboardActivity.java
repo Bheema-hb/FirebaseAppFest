@@ -1,6 +1,8 @@
 package tj.appfest.com.blooddonor.ui;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +36,7 @@ public class DashboardActivity extends AppCompatActivity {
     private DatabaseReference userProfileDb;
     private FirebaseDatabase firebaseDatabase;
     private UserProfile mUserProfile;
-    ArrayList<UserProfile> donorsList =new ArrayList<>();
+    ArrayList<UserProfile> donorsList = new ArrayList<>();
     private DonorAdapter donorAdapter;
 
     @BindView(R.id.recycler_view)
@@ -62,23 +65,31 @@ public class DashboardActivity extends AppCompatActivity {
 
         donorAdapter.notifyDataSetChanged();
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.request_blood);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, RequestForBloodActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }
 
-    public ArrayList<UserProfile> retrieve()
-    {
+    public ArrayList<UserProfile> retrieve() {
 
         userProfileDb.orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-               for (DataSnapshot ds : dataSnapshot.getChildren()){
-                   UserProfile group = ds.getValue(UserProfile.class);
-                   Log.d(TAG, ""+group.getName());
-                   donorsList.add(group);
-                   donorAdapter.notifyDataSetChanged();
-               }
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    UserProfile group = ds.getValue(UserProfile.class);
+                    Log.d(TAG, "" + group.getName());
+                    donorsList.add(group);
+                    donorAdapter.notifyDataSetChanged();
+                }
 
             }
 
@@ -93,15 +104,15 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.profile:
                 startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
                 break;
