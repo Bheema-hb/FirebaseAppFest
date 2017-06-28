@@ -135,6 +135,10 @@ public class ProfileActivity extends AppCompatActivity {
             LocalDB.getInstance(this).setUserId(mUserProfile.mobile);
 
             Snackbar.make(rootView, "Data Saved", Snackbar.LENGTH_LONG).show();
+
+            finish();
+            startActivity(new Intent(ProfileActivity.this, DashboardActivity.class));
+
         } else {
             Snackbar.make(rootView, getString(R.string.err_mandatory_fields_not_entered), Snackbar.LENGTH_LONG).show();
         }

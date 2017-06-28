@@ -4,6 +4,7 @@
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_sign_gmail">Google SignIn</string>
     <string name="title_activity_sign_number">Login using Mobile</string>
+    <string name="title_activity_dashboard">Dashboard</string>
     <string name="signed_out">Signed Out</string>
     <string name="loading">Loading</string>
     <string name="user_name">Name</string>
