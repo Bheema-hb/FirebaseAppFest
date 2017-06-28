@@ -4,4 +4,16 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="signed_out">Signed Out</string>
     <string name="loading">Loading</string>
+    <string name="user_name">Name</string>
+    <string name="user_email">Email</string>
+    <string name="user_address">Address</string>
+    <string name="user_dob">DOB</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="blood_group">Blood Group</string>
+
+    <array name="blood_group_types">
+        <item>A</item>
+        <item>B</item>
+
+    </array>
 </resources>

@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import tj.appfest.com.blooddonor.ProfileActivity;
 import tj.appfest.com.blooddonor.R;
 
 /**
@@ -88,7 +89,7 @@ public class GoogleSignInActivity extends BaseActivity implements
                 firebaseAuthWithGoogle(account);
             } else {
                 updateUI(null);
-                Log.d(TAG,""+result.getStatus());
+                Log.d(TAG, "" + result.getStatus());
             }
         }
     }
@@ -154,11 +155,14 @@ public class GoogleSignInActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText(""+user.getEmail());
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+            finish();
+           /* mStatusTextView.setText(""+user.getEmail());
             mDetailTextView.setText(""+user.getUid());
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);*/
         } else {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);

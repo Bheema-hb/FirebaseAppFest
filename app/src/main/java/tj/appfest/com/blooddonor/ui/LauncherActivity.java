@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import tj.appfest.com.blooddonor.ProfileActivity;
 import tj.appfest.com.blooddonor.R;
 
 public class LauncherActivity extends AppCompatActivity {
@@ -13,7 +14,7 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_luncher);
 
-        Intent profile = new Intent(this, LauncherActivity.class);
+        Intent profile = new Intent(this, ProfileActivity.class);
         startActivity(profile);
 
 
