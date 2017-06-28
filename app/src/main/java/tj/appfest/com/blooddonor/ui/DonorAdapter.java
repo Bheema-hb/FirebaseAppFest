@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import tj.appfest.com.blooddonor.R;
-import tj.appfest.com.blooddonor.UserProfile;
+import tj.appfest.com.blooddonor.model.UserProfile;
 
 /**
  * Created by khalidparvez on 28/06/17.

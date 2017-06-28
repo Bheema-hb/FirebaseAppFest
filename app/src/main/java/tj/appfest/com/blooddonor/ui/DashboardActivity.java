@@ -23,7 +23,8 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import tj.appfest.com.blooddonor.R;
-import tj.appfest.com.blooddonor.UserProfile;
+import tj.appfest.com.blooddonor.model.UserProfile;
+
 
 public class DashboardActivity extends AppCompatActivity {
 
