@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import tj.appfest.com.blooddonor.LocalDB;
 import tj.appfest.com.blooddonor.R;
 
 /**
@@ -146,6 +147,10 @@ public class GoogleSignInActivity extends BaseActivity implements
         hideProgressDialog();
         if (user != null) {
             Intent intent = new Intent(this, ProfileActivity.class);
+            if(LocalDB.getInstance(this).getUserId() != null){
+                 intent = new Intent(this, DashboardActivity.class);
+            }
+
             startActivity(intent);
             finish();
            /* mStatusTextView.setText(""+user.getEmail());

@@ -29,6 +29,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import tj.appfest.com.blooddonor.LocalDB;
 import tj.appfest.com.blooddonor.R;
 
 public class PhoneAuthActivity extends AppCompatActivity implements
@@ -335,7 +336,11 @@ public class PhoneAuthActivity extends AppCompatActivity implements
             mVerificationField.setText(null);
 
             finish();
-            startActivity(new Intent(PhoneAuthActivity.this, ProfileActivity.class));
+            Intent intent = new Intent(this, ProfileActivity.class);
+            if(LocalDB.getInstance(this).getUserId() != null){
+                intent = new Intent(this, DashboardActivity.class);
+            }
+            startActivity(intent);
         }
     }
 
