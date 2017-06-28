@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -151,6 +151,14 @@ public class ProfileActivity extends AppCompatActivity {
     public void showDOBPicker() {
         DialogFragment newFragment = new DatePickerFragment(dob);
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    @OnClick(R.id.logout_profile)
+    public void signOut(){
+        FirebaseAuth.getInstance().signOut();
+        finish();
+        startActivity(new Intent(ProfileActivity.this, LauncherActivity.class));
+
     }
 
 
