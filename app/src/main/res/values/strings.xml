@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">BloodDonor</string>
 
-    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_sign_gmail">Google SignIn</string>
+    <string name="title_activity_sign_number">Login using Mobile</string>
     <string name="signed_out">Signed Out</string>
     <string name="loading">Loading</string>
     <string name="user_name">Name</string>
@@ -28,4 +30,9 @@
 
     </array>
     <string name="instant_validation">(instant validation)</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="verify">Verify</string>
+    <string name="resend_verification_code">Resend Verification Code</string>
 </resources>

@@ -44,8 +44,6 @@ public class LauncherActivity extends BaseActivity {
                             Toast.makeText(LauncherActivity.this, "Fetch Succeeded",
                                     Toast.LENGTH_SHORT).show();
 
-                            // After config data is successfully fetched, it must be activated before newly fetched
-                            // values are returned.
                             mFirebaseRemoteConfig.activateFetched();
                         } else {
                             Toast.makeText(LauncherActivity.this, "Fetch Failed",
@@ -65,6 +63,7 @@ public class LauncherActivity extends BaseActivity {
             loginScreen = new Intent(this, GoogleSignInActivity.class);
         }
 
+        finish();
         startActivity(loginScreen);
     }
 }
