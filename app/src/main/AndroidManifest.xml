@@ -10,11 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <service android:name=".fcm.FCMMessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <service android:name=".fcm.FCMInstanceIDListenerService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -36,25 +38,29 @@
             android:name=".ui.GoogleSignInActivity"
             android:label="@string/title_activity_sign_gmail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name=".ui.ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".ui.PhoneAuthActivity"
             android:label="@string/title_activity_sign_number"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".ui.LauncherActivity"
-            android:label="Welcome"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DashboardActivity"></activity>
+
+
     </application>
 
 </manifest>
