@@ -27,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tj.appfest.com.blooddonor.DatePickerFragment;
+import tj.appfest.com.blooddonor.LocalDB;
 import tj.appfest.com.blooddonor.R;
 import tj.appfest.com.blooddonor.UserProfile;
 
@@ -126,10 +127,12 @@ public class ProfileActivity extends AppCompatActivity {
             mUserProfile.mobile = mobile.getText().toString();
             mUserProfile.dob = dob.getText().toString();
 
-            userProfileDb = firebaseDatabase.getReference("user_profiles");
-            String userId = userProfileDb.push().getKey();
+            userProfileDb = firebaseDatabase.getReference("server/data/users/profiles");
+            DatabaseReference userDatabase = userProfileDb.child(mUserProfile.mobile);
 
-            userProfileDb.child(userId).setValue(mUserProfile);
+
+            userDatabase.setValue(mUserProfile);
+            LocalDB.getInstance(this).setUserId(mUserProfile.mobile);
 
             Snackbar.make(rootView, "Data Saved", Snackbar.LENGTH_LONG).show();
         } else {
@@ -185,7 +188,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.logout_profile)
-    public void signOut(){
+    public void signOut() {
         FirebaseAuth.getInstance().signOut();
         finish();
         startActivity(new Intent(ProfileActivity.this, LauncherActivity.class));

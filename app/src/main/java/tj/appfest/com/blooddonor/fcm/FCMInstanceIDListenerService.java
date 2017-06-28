@@ -16,7 +16,12 @@ package tj.appfest.com.blooddonor.fcm;
  * limitations under the License.
  */
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+
+import tj.appfest.com.blooddonor.LocalDB;
 
 public class FCMInstanceIDListenerService extends FirebaseInstanceIdService {
 
@@ -26,8 +31,18 @@ public class FCMInstanceIDListenerService extends FirebaseInstanceIdService {
      * the previous token had been compromised. This call is initiated by the
      * InstanceID provider.
      */
+    DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
+
     @Override
     public void onTokenRefresh() {
+        String userId = LocalDB.getInstance(this).getUserId();
+        if (userId != null) {
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference("user_profile");
+            FirebaseInstanceId instanceID = FirebaseInstanceId.getInstance();
+            databaseReference.child(userId).child("fcmToken").setValue(instanceID);
 
+        }
     }
 }

@@ -37,23 +37,27 @@
         <activity
             android:name=".ui.GoogleSignInActivity"
             android:label="@string/title_activity_sign_gmail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
 
         <activity
             android:name=".ui.ProfileActivity"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name=".ui.PhoneAuthActivity"
             android:label="@string/title_activity_sign_number"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name=".ui.LauncherActivity"
-            android:label="Welcome">
+            android:label="Welcome"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

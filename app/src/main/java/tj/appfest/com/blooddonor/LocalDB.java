@@ -37,6 +37,9 @@ public class LocalDB {
         return mSharedPreference.getString(USER_ID, null);
     }
 
+    public void clearDB() {
+        mSharedPreference.edit().clear().commit();
+    }
 
 
 }
