@@ -74,7 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
 
     }
 
