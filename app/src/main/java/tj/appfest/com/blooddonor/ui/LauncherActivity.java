@@ -1,7 +1,9 @@
-package tj.appfest.com.blooddonor;
+package tj.appfest.com.blooddonor.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import tj.appfest.com.blooddonor.R;
 
 public class LauncherActivity extends AppCompatActivity {
 

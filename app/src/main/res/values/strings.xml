@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">BloodDonor</string>
+
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="loading">Loading</string>
 </resources>
